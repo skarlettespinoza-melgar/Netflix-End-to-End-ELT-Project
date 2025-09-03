@@ -1,54 +1,47 @@
-Netflix Data Analysis with Python & SQL Server
-📌 Project Overview
+# Netflix Data Analysis with Python & SQL Server
 
-This project demonstrates the process of building a relational database from raw Netflix data, cleaning and transforming it in SQL Server Management Studio (SSMS), and performing SQL queries to generate insights.
+## 📌 Project Overview
+This project demonstrates the process of building a **relational database** from raw Netflix data, cleaning and transforming it in **SQL Server Management Studio (SSMS)**, and performing SQL queries to generate insights.
 
-The workflow covers data extraction, cleaning, normalization, and analysis using SQL joins, CTEs, and aggregations.
+The workflow covers **data extraction, cleaning, normalization, and analysis** using SQL joins, CTEs, and aggregations.
 
-🛠 Tools & Technologies
+---
 
-Python – Extracting and loading raw data into SQL Server
+## 🛠 Tools & Technologies
+- **Python** – Extracting and loading raw data into SQL Server  
+- **SQL Server Management Studio (SSMS)** – Data cleaning, transformation, and relational schema design  
+- **SQL** – CTEs, window functions, joins, aggregate functions, string manipulation, and subqueries  
 
-SQL Server Management Studio (SSMS) – Data cleaning, transformation, and relational schema design
+---
 
-SQL – CTEs, window functions, joins, aggregate functions, string manipulation, and subqueries
+## 📂 Project Workflow
 
-📂 Project Workflow
+### Data Extraction & Loading
+- Extracted raw Netflix dataset using Python.  
+- Loaded the dataset into SQL Server for further processing.  
 
-Data Extraction & Loading
+### Data Cleaning & Transformation
+- Converted data types (e.g., `title` → `NVARCHAR` for foreign characters, `date_added` → `DATE`).  
+- Removed duplicates using `ROW_NUMBER()` and partitioning logic.  
+- Normalized data by splitting multi-value fields into separate relational tables (`netflix_directors`, `netflix_cast`, `netflix_countries`, `netflix_genres`).  
+- Populated missing values in `country` and `duration` columns where possible.  
 
-Extracted raw Netflix dataset using Python.
+### Relational Database Creation
+- Designed and implemented a relational schema to support advanced queries and analysis.  
 
-Loaded the dataset into SQL Server for further processing.
+### Analysis with SQL Queries
+Example insights generated:  
+- 🎬 Count of movies vs. TV shows per director  
+- 🌍 Country with the highest number of comedy movies  
+- 📅 Yearly breakdown of directors with the most movies added to Netflix  
+- ⏱ Average duration of movies by genre  
+- 😂😱 Directors who created both comedy and horror movies  
 
-Data Cleaning & Transformation
+---
 
-Converted data types (e.g., title → NVARCHAR for foreign characters, date_added → DATE).
+## 📊 Example Queries
 
-Removed duplicates using ROW_NUMBER() and partitioning logic.
-
-Normalized data by splitting multi-value fields into separate relational tables (netflix_directors, netflix_cast, netflix_countries, netflix_genres).
-
-Populated missing values in country and duration columns where possible.
-
-Relational Database Creation
-
-Designed and implemented a relational schema to support advanced queries and analysis.
-
-Analysis with SQL Queries
-Example insights generated:
-
-🎬 Count of movies vs. TV shows per director.
-
-🌍 Country with the highest number of comedy movies.
-
-📅 Yearly breakdown of directors with the most movies added to Netflix.
-
-⏱ Average duration of movies by genre.
-
-😂😱 Directors who created both comedy and horror movies.
-
-📊 Example Queries
+```sql
 -- #1 Directors who created both TV shows and movies
 SELECT nd.director,
        COUNT(DISTINCT CASE WHEN n.type='Movie' THEN n.show_id END) AS no_of_movies,
@@ -67,30 +60,28 @@ WHERE ng.genre='Comedies' AND n.type='Movie'
 GROUP BY nc.country
 ORDER BY no_of_comedies DESC;
 
-🚀 Outcomes
+## 🚀 Outcomes
+- Built a **reusable ETL pipeline** for data ingestion and transformation  
+- Designed a **clean, normalized relational database** for Netflix data  
+- Generated **actionable insights** on content trends using SQL queries  
 
-Built a reusable ETL pipeline for data ingestion and transformation.
+---
 
-Designed a clean, normalized relational database for Netflix data.
+## 📎 Repository Contents
+- `python/` – Scripts for data extraction and upload to SQL Server  
+- `sql/` – Data cleaning, transformation, and analysis queries  
+- `README.md` – Project documentation (this file)  
+- `netflix_relational_schema.png` – Relational database schema diagram  
+- `netflix_erd.png` – Professional ERD with relationships  
 
-Generated actionable insights on content trends using SQL queries.
+---
 
-📎 Repository Contents
+## 📈 Key Skills Demonstrated
+- **Data Engineering** (ETL, data cleaning, schema design)  
+- **SQL** (joins, CTEs, aggregations, window functions)  
+- **Python** (data extraction & automation)  
+- **Relational Database Design & Normalization**  
 
-python/ – Scripts for data extraction and upload to SQL Server
+---
 
-sql/ – Data cleaning, transformation, and analysis queries
-
-README.md – Project documentation (this file)
-
-📈 Key Skills Demonstrated
-
-Data Engineering (ETL, data cleaning, schema design)
-
-SQL (joins, CTEs, aggregations, window functions)
-
-Python (data extraction & automation)
-
-Relational Database Design & Normalization
-
-✨ This project showcases the ability to transform raw, messy datasets into structured databases and extract insights through advanced SQL queries.
+✨ *This project showcases the ability to transform raw, messy datasets into structured databases and extract insights through advanced SQL queries.*
