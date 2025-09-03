@@ -59,7 +59,7 @@ INNER JOIN netflix n ON ng.show_id=n.show_id
 WHERE ng.genre='Comedies' AND n.type='Movie'
 GROUP BY nc.country
 ORDER BY no_of_comedies DESC;
-
+```
 ## 🚀 Outcomes
 - Built a **reusable ETL pipeline** for data ingestion and transformation  
 - Designed a **clean, normalized relational database** for Netflix data  
