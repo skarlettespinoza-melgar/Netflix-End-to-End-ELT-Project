@@ -68,11 +68,9 @@ ORDER BY no_of_comedies DESC;
 ---
 
 ## 📎 Repository Contents
-- `python/` – Scripts for data extraction and upload to SQL Server  
-- `sql/` – Data cleaning, transformation, and analysis queries  
+- `sql/` – Data cleaning, transformation, and analysis queries
+- `python/` – Scripts for data extraction and upload to SQL Server    
 - `README.md` – Project documentation (this file)  
-- `netflix_relational_schema.png` – Relational database schema diagram  
-- `netflix_erd.png` – Professional ERD with relationships  
 
 ---
 
