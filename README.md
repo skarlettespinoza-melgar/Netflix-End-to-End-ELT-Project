@@ -72,6 +72,7 @@ ORDER BY no_of_comedies DESC;
 - `NetflixDataAnalysisQuestionQueries.sql` – SQL queries used for analysis and answering project questions  
 - `Netflix Data Extract and Analysis.ipynb` – Python notebook for extracting and uploading raw Netflix data to SQL Server  
 - `README.md` – Project documentation (this file)
+- `netflix_titles.csv` – Raw Netflix dataset
   
 ---
 
